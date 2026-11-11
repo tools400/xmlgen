@@ -1,0 +1,278 @@
+      *%METADATA                                                       *
+      * %TEXT XMLGENRS Exported Prototypes                             *
+      *%EMETADATA                                                      *
+      /if not defined(XMLGENRS_H)
+      /define XMLGENRS_H
+      *
+     D string_t        s           2000A   based(pDummy) varying
+      *
+      * Define function prototype to open script file
+     D openScript...
+     D                 PR              n
+     D                                     extproc('XMLGENRS_+
+     D                                     openScript+
+     D                                     ')
+     D  i_file                       10a   value
+     D  i_lib                        10a   value
+     D  i_mbr                        10a   value
+      *
+      * Define function prototype to setll in script file
+     D setllScript...
+     D                 PR
+     D                                     extproc('XMLGENRS_+
+     D                                     setllScript+
+     D                                     ')
+     D  i_rcdNbr                     10i 0 value
+      *
+      * Define function prototype to read from script file
+     D readScript...
+     D                 PR              n
+     D                                     extproc('XMLGENRS_+
+     D                                     readScript+
+     D                                     ')
+     D  o_line                      240a          varying
+      *
+      * Define function prototype to load a multi-line string from script file
+     D loadScriptString...
+     D                 PR                  like(string_t)
+     D                                     extproc('XMLGENRS_+
+     D                                     loadScriptString+
+     D                                     ')
+     D  i_line                      240A   value varying
+      *
+      * Define procedure prototype to close script file
+     D closeScript...
+     D                 PR
+     D                                     extproc('XMLGENRS_+
+     D                                     closeScript+
+     D                                     ')
+      *
+      * Define function prototype to open XML file
+     D openXML...
+     D                 PR              n
+     D                                     extproc('XMLGENRS_+
+     D                                     openXML+
+     D                                     ')
+     D  i_file                       10a   value
+     D  i_lib                        10a   value
+     D  i_mbr                        10a   value
+     D  i_mode                       10a   value
+      *
+      * Define function prototype to read from XML file
+     D readXML...
+     D                 PR              n
+     D                                     extproc('XMLGENRS_+
+     D                                     readXML+
+     D                                     ')
+     D  o_line                      240a          varying
+      *
+      * Define function prototype to write to XML file
+     D writeXML...
+     D                 PR
+     D                                     extproc('XMLGENRS_+
+     D                                     writeXML+
+     D                                     ')
+     D  i_line                      240a   value  varying
+      *
+      * Define function prototype to write a multi-line string to XML file
+     D writeXMLString...
+     D                 PR
+     D                                     extproc('XMLGENRS_+
+     D                                     writeXMLString+
+     D                                     ')
+     D  i_string                           value like(string_t)
+      *
+      * Define procedure prototype to close XML file
+     D closeXML...
+     D                 PR
+     D                                     extproc('XMLGENRS_+
+     D                                     closeXML+
+     D                                     ')
+      *
+      * Define function prototype to open member file
+     D openMbr...
+     D                 PR              n
+     D                                     extproc('XMLGENRS_+
+     D                                     openMbr+
+     D                                     ')
+     D  i_file                       10a   value
+     D  i_lib                        10a   value
+     D  i_mbr                        10a   value
+      *
+      * Define function prototype to read from member file
+     D readMbr...
+     D                 PR              n
+     D                                     extproc('XMLGENRS_+
+     D                                     readMbr+
+     D                                     ')
+     D  o_line                      240a          varying
+      *
+      * Define procedure prototype to close member file
+     D closeMbr...
+     D                 PR
+     D                                     extproc('XMLGENRS_+
+     D                                     closeMbr+
+     D                                     ')
+      *
+      * Define function prototype to get Member CCSID
+     D getMbrCCSID...
+     D                 PR             5u 0
+     D                                     extproc('XMLGENRS_+
+     D                                     getMbrCCSID+
+     D                                     ')
+      *
+      * Define function prototype to get Member record length
+     D getMbrRcdLen...
+     D                 PR             5i 0
+     D                                     extproc('XMLGENRS_+
+     D                                     getMbrRcdLen+
+     D                                     ')
+      *
+      * Define function prototype to remove preceeding and trailing quotes from a string
+     D rmvQuotes...
+     D                 PR                  like(string_t)
+     D                                     extproc('XMLGENRS_+
+     D                                     rmvQuotes+
+     D                                     ')
+     D  i_string                           value like(string_t)
+      *
+      * Define function prototype to replace double quotes by quotes
+     D rmvDblQuotes...
+     D                 PR                  like(string_t)
+     D                                     extproc('XMLGENRS_+
+     D                                     rmvDblQuotes+
+     D                                     ')
+     D  i_string                           value like(string_t)
+      *
+      * Define function prototype to replace all occurences of a token in a string
+     D replace...
+     D                 PR                  like(string_t)
+     D                                     extproc('XMLGENRS_+
+     D                                     replace+
+     D                                     ')
+     D  i_token                            value like(string_t)
+     D  i_string                           value like(string_t)
+     D  i_value                            value like(string_t)
+      *
+      * Define function prototype to check whether a string starts with a given string
+     D startsWith...
+     D                 PR              N
+     D                                     extproc('XMLGENRS_+
+     D                                     startsWith+
+     D                                     ')
+     D  i_prefix                           value like(string_t)
+     D  i_string                           value like(string_t)
+      *
+      * Define function prototype to format a CL command
+     D fmtClCmd...
+     D                 PR                  like(string_t)
+     D                                     extproc('XMLGENRS_+
+     D                                     fmtClCmd+
+     D                                     ')
+     D  i_cmd                              value like(string_t)
+      *
+      * Define function prototype to remove comments from a CL String
+     D rmvClRem...
+     D                 PR                  like(string_t)
+     D                                     extproc('XMLGENRS_+
+     D                                     rmvClRem+
+     D                                     ')
+     D  i_clCmd                            value like(string_t)
+      *
+      * Define function prototype to get keyword data from a string
+     D getKwdData...
+     D                 PR                  like(string_t)
+     D                                     extproc('XMLGENRS_+
+     D                                     getKwdData+
+     D                                     ')
+     D  i_keyWord                    10a   value
+     D  i_string                           value like(string_t)
+      *
+      * Define function prototype to get a field name from string
+     D getFldName...
+     D                 PR            10a   varying
+     D                                     extproc('XMLGENRS_+
+     D                                     getFldName+
+     D                                     ')
+     D  i_keyWord                    10a   value
+     D  i_string                           value like(string_t)
+      *
+      * Define function prototype to get attribute data from a string
+     D getAttrData...
+     D                 PR                  like(string_t)
+     D                                     extproc('XMLGENRS_+
+     D                                     getAttrData+
+     D                                     ')
+     D  i_attr                       10a   value
+     D  i_string                           value like(string_t)
+      *
+      * Define function prototype check for an object
+     D chkobj...
+     D                 PR              n
+     D                                     extproc('XMLGENRS_+
+     D                                     chkobj+
+     D                                     ')
+     D  i_obj                        10a   value
+     D  i_lib                        10a   value
+     D  i_type                       10a   value
+     D  i_mbr                        10a   value  options(*nopass)
+      *
+      * Define procedure prototype to send a message
+     D sndMessage...
+     D                 PR
+     D                                     extproc('XMLGENRS_+
+     D                                     sndMessage+
+     D                                     ')
+     D  i_msgID                       7a   value
+     D  i_msgText                   512a   value  varying
+     D  i_msgType                    10a   value
+     D  i_msgFile                    10a   value  options(*nopass)
+     D  i_msgLib                     10a   value  options(*nopass)
+      *
+      * Define procedure prototype to ensure string length between module
+     D ensureStringLength...
+     D                 PR
+     D                                     extproc('XMLGENRS_+
+     D                                     ensureStringLength+
+     D                                     ')
+     D  i_size                       10i 0 value
+      *
+      * Define procedure prototype of C like assert macro
+     D assert...
+     D                 PR
+     D                                     extproc('XMLGENRS_+
+     D                                     assert+
+     D                                     ')
+     D  i_condition                    n   value
+     D  i_text                      128a   value
+     D  i_procedure                 128a   value  options(*nopass)
+      *
+      * Define function prototype to convert to upper case
+     D uCase...
+     D                 PR                  like(string_t)
+     D                                     extproc('XMLGENRS_+
+     D                                     uCase+
+     D                                     ')
+     D  i_string                           value like(string_t)
+      *
+      * Define function prototype to retrieve member text
+     D getMbrTxt...
+     D                 PR            50a
+     D                                     extproc('XMLGENRS_+
+     D                                     getMbrTxt+
+     D                                     ')
+     D  i_file                       10a   value
+     D  i_lib                        10a   value
+     D  i_mbr                        10a   value
+      *
+      * Retrieves version information from the specified source member
+     D getVersionInfo...
+     D                 PR            15a   varying
+     D                                     extproc('XMLGENRS_+
+     D                                     getVersionInfo+
+     D                                     ')
+     D  i_file                       10a   value
+     D  i_lib                        10a   value
+     D  i_mbr                        10a   value
+      *
+      /endif

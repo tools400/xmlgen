@@ -1,0 +1,81 @@
+.*%METADATA                                                            *
+.* %TEXT help panel group for XMLPREVIEW command        jcr            *
+.*%EMETADATA                                                           *
+.*-------------------------------------------------------------------*
+.* XMLPREVIEW - Easy view of XML upload member - Help Text             *
+.* By   Craig Rutledge,  7/18/2001                                   *
+.*-------------------------------------------------------------------*
+:PNLGRP.
+:HELP name='XMLPREVIEW/ALL'.
+:IMHELP name=XMLPREVIEW.
+:IMHELP name='XMLPREVIEW/UPLOADMBR'.
+:IMHELP name='XMLPREVIEW/UPLOADSRCF'.
+:IMHELP name='XMLPREVIEW/OUTPUTSRCF'.
+:EHELP.
+.*--------------------------------------------------------------------
+:HELP NAME='XMLPREVIEW'.
+View XML Upload Members (XMLPREVIEW) - Help
+:P.
+This command reads an uploaded source member, listing the members
+and commands to be executed, into a subfile for easy review.
+:EHELP.
+.*--------------------------------------------------------------------
+.* HELP TEXT FOR XMLKEY PARAMETER
+.*--------------------------------------------------------------------
+:HELP name='XMLPREVIEW/UPLOADMBR'.
+Uploaded member name  - Help
+:XH3.Uploaded member name (UPLOADMBR)
+:P.
+Specifies the member name of a uploaded member
+that contains the source and object information about to be installed.
+:P.
+This is a required parameter.
+:PARML.
+:PT.member-name
+:PD.Specify the uploaded member name.
+:EPARML.
+:EHELP.
+.*--------------------------------------------------------------------
+.* HELP TEXT FOR UPLOADSRCF
+.*--------------------------------------------------------------------
+:HELP name='XMLPREVIEW/UPLOADSRCF'.
+Uploaded into source file - Help
+:XH3.Uploaded into source file (UPLOADSRCF)
+:P.Specifies the name of the source file where the upload member was
+placed.
+.*
+:PARML.
+:PT.source-file-name
+:PD.Enter the source file name for the upload member.
+.*
+:PT.:PK def.*LIBL:EPK.
+:PD.The system searches the library list to find the library where the
+source file is located.
+.*
+:PT.library-name
+:PD.Enter the name of the library where the source file is located.
+:EPARML.
+:EHELP.
+.*--------------------------------------------------------------------
+.* HELP TEXT FOR OUTSRCPF
+.*--------------------------------------------------------------------
+:HELP name='XMLPREVIEW/OUTPUTSRCF'.
+Output to this source file - Help
+:XH3.Output to this source file  (OUTPUTSRCF)
+:P.Optionally specifies the name of the source file where ALL  members will be
+extracted.  This option is available to persons who want install all
+source members into a single selected source file.  This option can
+only be used if the uploaded file has different names for all members.
+:PARML.
+:PT.:PK def.*DEFAULTS:EPK.
+:PD.The default source files, defined in the uploaded member, will be used.
+.*
+:PT.source-file-name
+:PD.Enter the source file name to contain the extracted source members.
+Source file does not have to exists as it will be created.
+Note:  To use this option you must verfiy
+the uploaded text has no duplicate member names.
+:EPARML.
+:EHELP.
+.*
+:EPNLGRP.

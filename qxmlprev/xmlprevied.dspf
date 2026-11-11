@@ -1,0 +1,79 @@
+      *%METADATA                                                       *
+      * %TEXT Preview installation upload (before install)   jcr       *
+      *%EMETADATA                                                      *
+      *%%TS  SD  20080404  142532  RADDATZ     REL-V5R4M0  5722-WDS
+      *----------------------------------------------------------------
+      * XMLPVIEWR - PREVIEW UPLOADS BEFORE INSTALL
+      * By   Craig Rutledge,  07/18/01
+      *----------------------------------------------------------------
+      *%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      PRINT
+     A                                      CA03
+     A                                      CA12
+     A                                      CA10
+      *
+      *----------------------------------------------------------------
+     A          R DATA1                     SFL
+      *%%TS  SD  20080404  142532  RADDATZ     REL-V5R4M0  5722-WDS
+     A            XDATA         77A  O  6  2
+      *----------------------------------------------------------------
+     A          R CONTRL1                   SFLCTL(DATA1)
+      *%%TS  SD  20080404  142532  RADDATZ     REL-V5R4M0  5722-WDS
+     A                                      SFLSIZ(0017)
+     A                                      SFLPAG(0016)
+     A                                      OVERLAY
+     A  01                                  SFLDSP
+     A  02                                  SFLDSPCTL
+     A N02                                  SFLCLR
+     A N04                                  SFLEND(*MORE)
+     A                                  1  2'XMLPREVIEW'
+     A                                      COLOR(BLU)
+     A                                  1 24'Preview XML Upload before Install'
+     A                                      DSPATR(HI)
+     A                                  1 62'jcr'
+     A                                      COLOR(BLU)
+     A                                  1 72DATE
+     A                                      EDTWRD('0  /  /  ')
+     A                                      COLOR(BLU)
+     A            I_SMBR        10A  O  3 54
+     A            I_SFIL        10A  O  2 22
+     A            I_SLIB        10A  O  3 22
+     A                                  2 72SYSNAME
+     A                                      COLOR(BLU)
+     A                                  5  2'Seq'
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A                                  5  6'Cmd'
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A                                  5 10'MbrName'
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A                                  5 21'MbrAttr'
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A                                  5 32'TargetSrc'
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A                                  5 44'Text                              '
+     A                                      DSPATR(UL)
+     A                                      COLOR(BLU)
+     A            I_TGTRLS      10A  O  2 54
+     A                                  2  2'File  . . . . . .'
+     A                                  3  4'Library . . . .'
+     A                                  3 35'Member . . . . .'
+     A                                  2 35'Target Release .'
+      *----------------------------------------------------------------
+     A          R KEYS
+     A                                      BLINK
+     A                                 23  2'F3=Exit No Install'
+     A                                      COLOR(BLU)
+     A  40                             23 30'F10=Run Install'
+     A                                      COLOR(BLU)
+     A                                 23 58'F12=Cancel No Install'
+     A                                      COLOR(BLU)
+     A N40                             24 21'Install Program not included in XM-
+     A                                      L'
+     A                                      COLOR(BLU)
+     A                                      DSPATR(RI)

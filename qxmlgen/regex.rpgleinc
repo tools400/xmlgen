@@ -1,0 +1,100 @@
+      *%METADATA                                                       *
+      * %TEXT Type defs for regular expressions                        *
+      *%EMETADATA                                                      *
+      /if not defined(REGEX)
+      /define REGEX
+      *
+     d regex_t         ds                  align   qualified       based(pDummy)
+     d  re_nsub                      10u 0
+     d  re_comp                        *
+     d  re_cflags                    10i 0
+     d  re_erroff                    10u 0
+     d  re_len                       10u 0
+     d  re_ucoll                     10i 0 dim(2)
+     d  re_lsub                        *
+     d  lsub_ar                      10i 0 dim(16)
+     d  esub_ar                      10i 0 dim(16)
+     d  reserved1                      *
+     d  re_esub                        *
+     d  re_specchar                    *
+     d  re_phdl                        *
+     d  comp_spc                    112A
+     d  re_map                      256a
+     d  re_shift                      5i 0
+     d  re_dbcs                       5i 0
+      *
+     d regmatch_t      ds                  align   qualified       based(pDummy)
+     d  rm_so                        10i 0
+     d  rm_ss                         5i 0
+     d  rm_eo                        10i 0
+     d  rm_es                         5i 0
+      *
+      *    rm_so  -  offset of substring
+      *    rm_ss  -  Shift state at start of substring
+      *    rm_eo  -  offset of first char after substring
+      *    rm_es  -  Shift state at end of substring
+      *
+      *  Constants:   regcomp() cflags
+      *     Basic RE rules  (BRE)
+     d REG_BASIC       c                   0                                    x'0000'
+      *     Extended RE rules (ERE)
+     d REG_EXTENDED    c                   1                                    x'0001'
+      *     Ignore case in match
+     d REG_ICASE       c                   2                                    x'0002'
+      *     Convert <backslash><n> to <newline>
+     d REG_NEWLINE     c                   4                                    x'0004'
+      *     regexec() not report subexpressions
+     d REG_NOSUB       c                   8                                    x'0008'
+      *     POSIX: Use IFS newline
+      *            instead of database newline
+      *     UTF32: Use database newline
+      *            instead of IFS newline.
+     d REG_ALT_NL      c                   16                                   x'0010'
+      *
+      *  Constants:   regexec() eflags
+      *     First character not start of line
+     d REG_NOTBOL      c                   256                                  x'0100'
+      *     Last character not end of line
+     d REG_NOTEOL      c                   512                                  x'0200'
+      *
+      *  Regular expressions error codes
+     d REG_NOMATCH     c                     1
+     d REG_BADPAT      c                     2
+     d REG_ECOLLATE    c                     3
+     d REG_ECTYPE      c                     4
+     d REG_EESCAPE     c                     5
+     d REG_ESUBREG     c                     6
+     d REG_EBRACK      c                     7
+     d REG_EPAREN      c                     8
+     d REG_EBRACE      c                     9
+     d REG_BADBR       c                    10
+     d REG_ERANGE      c                    11
+     d REG_ESPACE      c                    12
+     d REG_BADRPT      c                    13
+     d REG_ECHAR       c                    14
+     d REG_EBOL        c                    15
+      *
+     d regcomp         pr            10i 0 extproc('regcomp')
+     d   preg                                     likeds(regex_t)
+     d   pattern                       *   value  options(*string)
+     d   cflags                      10i 0 value
+
+     d regexec         pr            10i 0 extproc('regexec')
+     d   preg                                     likeds(regex_t)
+     d   string                        *   value  options(*string)
+     d   nmatch                      10u 0 value
+     d   pmatch                                   likeds(regmatch_t)
+     d                                            dim(32767)
+     d                                            options(*varsize)
+     d   eflags                      10i 0 value
+
+     d regerror        pr            10u 0 extproc('regerror')
+     d   errcode                     10i 0 value
+     d   preg                                     like(regex_t)
+     d   errbuf                        *   value
+     d   errbuf_size                 10i 0 value
+      *
+     d regfree         pr                  extproc('regfree')
+     d   preg                                     likeds(regex_t)
+      *
+      /endif

@@ -1,0 +1,187 @@
+.*%METADATA                                                            *
+.* %TEXT Help panel group for XMLGEN command            jcr            *
+.*%EMETADATA                                                           *
+.*-------------------------------------------------------------------*
+.* >>PRE-COMPILER<<                                                  *
+.*   >>CRTCMD<< CRTPNLGRP    PNLGRP(&LI/&OB) +                       *
+.*                           SRCFILE(&SL/&SF) SRCMBR(&SM);           *
+.*   >>IMPORTANT<<                                                   *
+.*     >>PARM<< OPTION(*EVENTF);                                     *
+.*   >>END-IMPORTANT<<                                               *
+.*   >>EXECUTE<<                                                     *
+.* >>END-PRE-COMPILER<<                                              *
+.*-------------------------------------------------------------------*
+.* XMLGENP - Generate XML download member - Help Text                *
+.*                                                                   *
+.* By   Craig Rutledge,  6/19/2001                                   *
+.*                                                                   *
+.*-------------------------------------------------------------------*
+:PNLGRP.
+.*
+:HELP name='XMLGEN/ALL'.
+:IMHELP name=XMLGEN.
+:IMHELP name='XMLGEN/XMLSCRIPT'.
+:IMHELP name='XMLGEN/SCRIPTSRCF'.
+:IMHELP name='XMLGEN/SRCTOFILE'.
+:IMHELP name='XMLGEN/XMLMBR'.
+:IMHELP name='XMLGEN/ENCODING'.
+:IMHELP name='XMLGEN/AUTHOR'.
+:EHELP.
+.*--------------------------------------------------------------------
+.* HELP TEXT FOR THE COMMAND
+.*--------------------------------------------------------------------
+:HELP NAME='XMLGEN'.
+Generate XML download mbrs (XMLGEN) - Help
+:P.
+This command generates a source file member
+containing validated, well-formed XML text with all the information
+required to recreate your source members/objects on another system.
+.*
+:P.
+The driver is a 'script' member in source file QXMLGENS where you describe
+the source members and object types you want to associate together with
+a particular application build.
+The script member for this utility XMLGEN is in source file QXMLGENS
+for you to review.
+:P.Three commands included in this utility are used to build the
+information in the script file.
+.*
+:LINES.
+xmlgenINC  specify whether to generate text for install pgm
+xmlgenMBR  define attributes of source members and objects
+xmlgenCMD  define commands to be executed at runtime.
+xmlgenSQL  define SQL statements to be executed at runtime.
+xmlgenCND  define conditions.
+:ELINES.
+.*
+:P.The xmlgenINC command must appear first in your script source, but
+xmlgenMBR, xmlgenCMD and xmlgenSQL can be mixed in any sequence after
+that and may be used any number of times.   Installer program execution
+follows the same sequence of events defined in the script.
+.*
+:P.The xmlgenSQL command must be specified regarding to the
+SQL naming convention. The system naming convention can not
+be used.
+.*
+:P.You can use the XMLGENCND command to ask the user for conditions
+when the INSTALL program runs. Use the XCND() keyword to link a
+XMLGENMBR, XMLGENCMD or XMLGENSQL command to a condition. You may use
+conditions to compile language specific versions of a shipped utility.
+:EHELP.
+.*
+.*--------------------------------------------------------------------
+.* HELP TEXT FOR XMLKEY PARAMETER
+.*--------------------------------------------------------------------
+:HELP name='XMLGEN/XMLSCRIPT'.
+Script member name  - Help
+:XH3.Script member name (XMLSCRIPT)
+:P.
+Specifies the member name of a script member in file QXMLGENS
+that contains the source and object information for this app.
+:P.
+This is a required parameter.
+:PARML.
+:PT.member-name
+:PD.Specify the script member name.
+:EPARML.
+:EHELP.
+.*
+.*--------------------------------------------------------------------
+.* HELP TEXT FOR SCRIPTSRCF
+.*--------------------------------------------------------------------
+:HELP name='XMLGEN/SCRIPTSRCF'.
+Script source file - Help
+:XH3.Script source file (SCRIPTSRCF)
+:P.Specifies the name of the source file where the script for this app
+is stored.
+.*
+:PARML.
+:PT.:PK def.QXMLGENS:EPK.
+:PD.The default source file, QXMLGENS will be used.
+.*
+:PT.source-file-name
+:PD.Enter the source file name for the script member.
+.*
+:PT.:PK def.*LIBL:EPK.
+:PD.The system searches the library list to find the library where the
+source file is located.
+.*
+:PT.library-name
+:PD.Enter the name of the library where the source file is located.
+:EPARML.
+:EHELP.
+.*
+.*
+.*--------------------------------------------------------------------
+.* HELP TEXT FOR SRCFILE
+.*--------------------------------------------------------------------
+:HELP name='XMLGEN/SRCTOFILE'.
+Source file - Help
+:XH3.Source file (SRCTOFILE)
+:P.Specifies the name of the source file where the XML member will be created.
+.*
+:PARML.
+:PT.:PK def.QXML:EPK.
+:PD.The default source file, QXML will be used.
+.*
+:PT.source-file-name
+:PD.Enter the source file name for the XML member.
+.*
+:PT.:PK def.*LIBL:EPK.
+:PD.The system searches the library list to find the library where the
+source file is located.
+.*
+:PT.library-name
+:PD.Enter the name of the library where the source file is located.
+:EPARML.
+:EHELP.
+.*
+.*
+.*--------------------------------------------------------------------
+.* HELP TEXT FOR XMLMBR
+.*--------------------------------------------------------------------
+:HELP name='XMLGEN/XMLMBR'.
+XML output member name - Help
+:XH3.XML output member name (XMLMBR)
+:P.Specifies the name of the output XML member.
+.*
+:PARML.
+:PT.:PK def.*SCRIPT:EPK.
+:PD.The name of the XML output member is set to the name of the
+input script member.
+.*
+:PT.member-name
+:PD.Name of the XML output member.
+:EPARML.
+:EHELP.
+.*
+.*
+.*--------------------------------------------------------------------
+.* HELP TEXT FOR ENCODING
+.*--------------------------------------------------------------------
+:HELP name='XMLGEN/ENCODING'.
+Encoding of XML file - Help
+:XH3.Encoding of XML file (ENCODING)
+:P.Specifies the encoding of the XML file.
+.*
+:PARML.
+:PT.:PK def.ISO-8859-1:EPK.
+:PD.ISO-8859-1 should be fine for German character sets.
+.*
+:PT.UTF-8
+:PD.The default encoding is UTF-8. UTF-8 should be fine
+for US character sets.
+:EPARML.
+:EHELP.
+.*
+.*
+.*--------------------------------------------------------------------
+.* HELP TEXT FOR OWNER
+.*--------------------------------------------------------------------
+:HELP name='XMLGEN/AUTHOR'.
+Application author - Help
+:XH3.Application author (AUTHOR)
+:P.Specifies the author of the application.
+:EHELP.
+.*
+:EPNLGRP.

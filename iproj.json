@@ -1,0 +1,7 @@
+{
+  "description": "Craig Rutledge XMLGEN utility",
+  "repository": "git@github.com:tools400/xmlgen.git",
+  "curlib": "&XMLGEN_LIB",
+  "buildCommand": "makei build",
+  "compileCommand": "makei compile -f {filename}"
+}

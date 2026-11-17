@@ -1,11 +1,10 @@
-      *%METADATA                                                       *
-      * %TEXT Copyright information                                    *
-      *%EMETADATA                                                      *
-      /if not defined(COPYRIGHT_DSPEC)
-     H COPYRIGHT('V2.1.0 - 06.12.2018 - mailto:thomas.raddatz@tools400.de')
-      /eof
-      /endif
-     D XMLGEN_VERSION...
-     D                 C                   '2.1.0'
-     D XMLGEN_DATE...
-     D                 C                   '06.12.2018'
+**free
+      //%METADATA                                                      *
+      // %TEXT Copyright information                                   *
+      //%EMETADATA                                                     *
+/if not defined(COPYRIGHT_DSPEC)
+ctl-opt copyright('V2.1.0 - 06.12.2018 - mailto:thomas.raddatz@tools400.de');
+/eof
+/endif
+dcl-c XMLGEN_VERSION '2.1.0';
+dcl-c XMLGEN_DATE '06.12.2018';

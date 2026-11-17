@@ -1,11 +1,10 @@
-      *%METADATA                                                       *
-      * %TEXT Copyright information                                    *
-      *%EMETADATA                                                      *
-      /if not defined(COPYRIGHT_DSPEC)
-     H COPYRIGHT('V2.0.0 - 19.04.2018 - mailto:thomas.raddatz@tools400.de')
-      /eof
-      /endif
-     D XMLPREV_VERSION...
-     D                 C                   '2.0.0'
-     D XMLPREV_DATE...
-     D                 C                   '19.04.2018'
+**free
+      //%METADATA                                                      *
+      // %TEXT Copyright information                                   *
+      //%EMETADATA                                                     *
+/if not defined(COPYRIGHT_DSPEC)
+ctl-opt copyright('V2.0.0 - 19.04.2018 - mailto:thomas.raddatz@tools400.de');
+/eof
+/endif
+dcl-c XMLPREV_VERSION '2.0.0';
+dcl-c XMLPREV_DATE '19.04.2018';

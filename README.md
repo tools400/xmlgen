@@ -45,6 +45,10 @@ Dependencies:
 
 None.
 
+XMLGEN and XMLPREVIEW are fully free-form RPG (`**FREE`). Building them and
+installing a generated XML package, whose install program is `**FREE`, too,
+requires IBM i 7.3, or 7.2 with TR3, or 7.1 with TR11.
+
 The [TOBi](https://github.com/IBM/ibmi-tobi) package (The Object Builder for i,
 `makei`) is required for building the utility.
 

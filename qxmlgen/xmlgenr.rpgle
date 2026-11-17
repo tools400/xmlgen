@@ -1228,7 +1228,7 @@ dcl-proc chgBndSrvPgmParm;
 
   x = %scan('(': i_command: x);
   y = x;
-  dou (k = 0 and y < %len(i_command));
+  dou (k = 0 or y > %len(i_command));
     select;
     when (%subst(i_command: y: 1) = '(');
       k = k + 1;
@@ -1246,17 +1246,12 @@ dcl-proc chgBndSrvPgmParm;
 
   command = i_command;
 
-  i = 1;
-  dow (i > 0);
-    if (i > %len(command));
-      i = 0;
-    else;
-      i = %scan(IMMED: command: x);
-      if (i > 0 and i > x and i < y);
-        command =
-           %replace('': command: i: %len(IMMED));
-      endif;
-    endif;
+  //  remove *IMMED between the parentheses x and y only
+  i = %scan(IMMED: command: x);
+  dow (i > 0 and i < y);
+    command = %replace('': command: i: %len(IMMED));
+    y = y - %len(IMMED);
+    i = %scan(IMMED: command: x);
   enddo;
 
   return command;

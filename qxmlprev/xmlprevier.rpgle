@@ -53,7 +53,7 @@ dcl-pr main extpgm('XMLPREVIER'); // Input Parms
   i_slib    char(10) const;
   i_usrsfil char(10) const;
   i_tgtrls  char(10) const;
-  i_action  char(4);
+  i_action  char(1);
 end-pr;
 //    -------------------------------------------------------------
 dcl-pi main; // Input Parms
@@ -62,7 +62,7 @@ dcl-pi main; // Input Parms
   i_slib    char(10) const;
   i_usrsfil char(10) const;
   i_tgtrls  char(10) const;
-  i_action  char(4);
+  i_action  char(1);  // &XMLINSTAL *CHAR 1 of XMLPREVIEC
 end-pi;
 //--------------------------------------------------------------------
 dcl-ds xmlRecord len(112); // record of xmlinput

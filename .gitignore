@@ -1,3 +1,7 @@
 .logs/
 .evfevent/
 .deps/
+.Rules.mk.build
+.env
+.project
+.settings/
